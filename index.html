@@ -1,0 +1,2771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ain't In LA | $AILA</title>
+<meta name="description" content="$AILA is a Solana meme token inspired by a current trend. Launching October 4, 2026.">
+
+<style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff1593;
+    --pink-light: #ff58b7;
+    --dark: #080106;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(5,0,4,.12),
+            rgba(5,0,4,.22)
+        ),
+        url("pozadie.png")
+        center center / cover
+        fixed no-repeat;
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav-wrap {
+    position: fixed;
+
+    top: 16px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(1540px, calc(100% - 42px));
+
+    z-index: 1000;
+}
+
+.navbar {
+    height: 88px;
+
+    padding: 0 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        270px
+        1fr
+        330px;
+
+    align-items: center;
+
+    background:
+        rgba(5,1,5,.94);
+
+    border:
+        1px solid
+        rgba(255,21,147,.65);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 0 25px rgba(255,21,147,.13),
+        inset 0 0 25px rgba(255,21,147,.025);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.brand img {
+    width: 190px;
+    height: 62px;
+
+    object-fit: contain;
+    object-position: left center;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(255,21,147,.35)
+        );
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 70px;
+}
+
+.nav-link {
+    position: relative;
+
+    padding:
+        31px
+        0
+        27px;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: #eeeeee;
+
+    transition: .25s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--pink-light);
+
+    text-shadow:
+        0 0 13px
+        rgba(255,21,147,.7);
+}
+
+.nav-link.active::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: var(--pink);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 10px var(--pink),
+        0 0 20px rgba(255,21,147,.5);
+}
+
+
+/* =========================================================
+   RIGHT NAV
+========================================================= */
+
+.nav-right {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTONS
+========================================================= */
+
+.social {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,21,147,.55);
+
+    background:
+        rgba(0,0,0,.4);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.social:hover {
+    border-color: var(--pink);
+
+    background:
+        rgba(255,21,147,.12);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 16px
+        rgba(255,21,147,.35);
+}
+
+.social svg {
+    width: 22px;
+    height: 22px;
+
+    fill: currentColor;
+}
+
+
+/* =========================================================
+   BUY.PNG BUTTON
+========================================================= */
+
+.buy-image-button {
+    display: block;
+
+    background: none;
+    border: none;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    transition:
+        transform .22s ease,
+        filter .22s ease,
+        opacity .22s ease;
+}
+
+.buy-image-button img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,21,147,.35)
+        );
+}
+
+
+/* NAV BUY */
+
+.nav-buy {
+    width: 190px;
+
+    margin-left: 5px;
+}
+
+
+/* HOME BUY */
+
+.hero-buy {
+    width: min(430px, 85vw);
+
+    margin-top: 15px;
+}
+
+
+/* ACTIVE BUTTON */
+
+.buy-image-button.buy-active:hover {
+    transform:
+        translateY(-3px)
+        scale(1.025);
+
+    filter:
+        brightness(1.08)
+        drop-shadow(
+            0 0 12px
+            rgba(255,21,147,.7)
+        );
+}
+
+.buy-image-button.buy-active:active {
+    transform:
+        translateY(0)
+        scale(.98);
+}
+
+
+/* DISABLED BUTTON */
+
+.buy-image-button.buy-disabled {
+    cursor: default;
+}
+
+.buy-image-button.buy-disabled img {
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(255,21,147,.30)
+        );
+}
+
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+.page {
+    display: none;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding:
+        125px
+        24px
+        45px;
+}
+
+.page.active {
+    display: flex;
+
+    animation:
+        pageFade
+        .4s ease;
+}
+
+@keyframes pageFade {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+#home {
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content {
+    width:
+        min(900px, 95%);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* MAIN LA.PNG */
+
+.home-logo {
+    width:
+        min(700px, 88vw);
+
+    max-height: 390px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 8px 6px
+            rgba(0,0,0,.8)
+        )
+        drop-shadow(
+            0 0 20px
+            rgba(255,21,147,.22)
+        );
+}
+
+
+/* =========================================================
+   CONTRACT
+========================================================= */
+
+.contract {
+    width:
+        min(610px, 92vw);
+
+    min-height: 62px;
+
+    margin-top: 3px;
+
+    padding:
+        10px
+        22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    background:
+        rgba(6,1,5,.91);
+
+    border:
+        2px solid
+        rgba(255,21,147,.70);
+
+    border-radius: 32px;
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 0 18px
+        rgba(255,21,147,.17),
+
+        inset 0 0 15px
+        rgba(255,21,147,.04);
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* SOLANA */
+
+.solana-icon {
+    width: 39px;
+    height: 39px;
+
+    flex:
+        0 0 39px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,21,147,.08);
+
+    border:
+        1px solid
+        rgba(255,21,147,.5);
+}
+
+.solana-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.contract-value {
+    color:
+        var(--pink-light);
+}
+
+
+/* =========================================================
+   ROADMAP PAGE
+========================================================= */
+
+#roadmap {
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 110px;
+}
+
+.roadmap-container {
+    width:
+        min(1320px, 96%);
+
+    text-align: center;
+}
+
+
+/* ROADMAP.PNG */
+
+.roadmap-title {
+    display: block;
+
+    width:
+        min(610px, 82vw);
+
+    height: auto;
+
+    margin:
+        -7px
+        auto
+        52px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(0,0,0,.7)
+        )
+        drop-shadow(
+            0 0 10px
+            rgba(255,21,147,.16)
+        );
+}
+
+
+/* ROADMAP GRID */
+
+.roadmap-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 42px;
+}
+
+
+/* ROAD CARD */
+
+.road-card {
+    position: relative;
+
+    min-height: 375px;
+
+    padding:
+        62px
+        26px
+        27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,2,14,.95),
+            rgba(7,1,6,.89)
+        );
+
+    border:
+        2px solid
+        rgba(255,21,147,.86);
+
+    border-radius: 29px;
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 0 13px
+        rgba(255,21,147,.38),
+
+        0 0 32px
+        rgba(255,21,147,.10),
+
+        inset 0 0 35px
+        rgba(255,21,147,.04);
+
+    transition: .3s;
+}
+
+.road-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 0 18px
+        rgba(255,21,147,.55),
+
+        0 0 40px
+        rgba(255,21,147,.16);
+}
+
+
+/* PHASE NUMBER */
+
+.phase {
+    position: absolute;
+
+    top: -47px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 94px;
+    height: 94px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        #090107;
+
+    border:
+        2px solid
+        var(--pink);
+
+    color:
+        var(--pink);
+
+    font-size: 32px;
+    font-weight: 1000;
+    font-style: italic;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,21,147,.55),
+
+        inset 0 0 15px
+        rgba(255,21,147,.08);
+}
+
+.road-card h2 {
+    margin-bottom: 12px;
+
+    font-size: 21px;
+
+    letter-spacing: 2px;
+}
+
+.pink-line {
+    width: 62px;
+    height: 3px;
+
+    margin:
+        0
+        auto
+        19px;
+
+    border-radius: 10px;
+
+    background:
+        var(--pink);
+
+    box-shadow:
+        0 0 10px
+        var(--pink);
+}
+
+
+/* ROAD ITEM */
+
+.road-item {
+    min-height: 70px;
+
+    margin-top: 12px;
+
+    padding:
+        12px
+        15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: left;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,21,147,.10),
+            rgba(255,255,255,.02)
+        );
+
+    border:
+        1px solid
+        rgba(255,21,147,.14);
+
+    border-radius: 15px;
+}
+
+.road-icon {
+    width: 43px;
+    height: 43px;
+
+    flex:
+        0 0 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,21,147,.09);
+
+    border:
+        1px solid
+        rgba(255,21,147,.28);
+
+    color:
+        var(--pink);
+}
+
+.road-icon svg {
+    width: 24px;
+    height: 24px;
+
+    stroke:
+        currentColor;
+
+    fill: none;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.road-text {
+    font-size: 15px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FAQ PAGE
+========================================================= */
+
+#faq {
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 110px;
+}
+
+.faq-container {
+    width:
+        min(1080px, 96%);
+
+    text-align: center;
+}
+
+
+/* FAQ.PNG */
+
+.faq-title {
+    display: block;
+
+    width:
+        min(480px, 78vw);
+
+    height: auto;
+
+    margin:
+        0
+        auto
+        20px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(0,0,0,.7)
+        )
+        drop-shadow(
+            0 0 12px
+            rgba(255,21,147,.14)
+        );
+}
+
+
+/* FAQ LIST */
+
+.faq-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+/* FAQ ITEM */
+
+.faq-item {
+    min-height: 78px;
+
+    display: grid;
+
+    grid-template-columns:
+        52px
+        270px
+        1fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding:
+        13px
+        24px
+        13px
+        18px;
+
+    text-align: left;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(15,2,11,.96),
+            rgba(35,3,23,.87)
+        );
+
+    border:
+        2px solid
+        rgba(255,21,147,.72);
+
+    border-radius: 20px;
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 0 13px
+        rgba(255,21,147,.23),
+
+        inset 0 0 20px
+        rgba(255,21,147,.03);
+
+    transition: .25s;
+}
+
+.faq-item:hover {
+    border-color:
+        var(--pink-light);
+
+    box-shadow:
+        0 0 18px
+        rgba(255,21,147,.34);
+}
+
+
+/* FAQ ICON */
+
+.faq-icon {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 11px;
+
+    border:
+        1px solid
+        rgba(255,21,147,.28);
+
+    background:
+        rgba(255,21,147,.08);
+
+    color:
+        var(--pink);
+}
+
+.faq-icon svg {
+    width: 24px;
+    height: 24px;
+
+    stroke:
+        currentColor;
+
+    fill: none;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* FAQ QUESTION */
+
+.faq-q {
+    font-size: 17px;
+
+    line-height: 1.25;
+
+    font-weight: 900;
+}
+
+
+/* FAQ ANSWER */
+
+.faq-answer-static {
+    padding-left: 22px;
+
+    border-left:
+        1px solid
+        rgba(255,21,147,.48);
+
+    color:
+        rgba(255,255,255,.86);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu-button {
+    display: none;
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(255,21,147,.4);
+
+    background:
+        rgba(255,21,147,.08);
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .navbar {
+        grid-template-columns:
+            1fr
+            auto;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-right .social {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .roadmap-grid {
+        grid-template-columns:
+            1fr;
+
+        width:
+            min(560px,100%);
+
+        margin:
+            0 auto;
+
+        gap: 76px;
+    }
+
+    .roadmap-title {
+        margin-bottom: 65px;
+    }
+
+    .road-card {
+        min-height: auto;
+    }
+
+    .faq-item {
+        grid-template-columns:
+            48px
+            230px
+            1fr;
+    }
+
+    .mobile-menu.open {
+        display: flex;
+
+        position: fixed;
+
+        z-index: 999;
+
+        top: 115px;
+        left: 22px;
+        right: 22px;
+
+        padding: 18px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        background:
+            rgba(5,1,5,.97);
+
+        border:
+            1px solid
+            rgba(255,21,147,.6);
+
+        border-radius: 20px;
+
+        backdrop-filter:
+            blur(20px);
+
+        box-shadow:
+            0 0 25px
+            rgba(255,21,147,.18);
+    }
+
+    .mobile-menu a,
+    .mobile-menu button {
+        min-height: 50px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        border:
+            1px solid
+            rgba(255,21,147,.18);
+
+        background:
+            rgba(255,21,147,.06);
+
+        color: white;
+
+        font-weight: 900;
+
+        letter-spacing: 1px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    .nav-wrap {
+        top: 9px;
+
+        width:
+            calc(100% - 18px);
+    }
+
+    .navbar {
+        height: 69px;
+
+        padding:
+            0
+            10px;
+
+        border-radius: 22px;
+    }
+
+    .brand img {
+        width: 120px;
+        height: 47px;
+    }
+
+    .nav-right {
+        gap: 5px;
+    }
+
+    .nav-buy {
+        width: 112px;
+
+        margin-left: 0;
+    }
+
+    .mobile-menu-button {
+        width: 39px;
+        height: 39px;
+    }
+
+    .page {
+        padding:
+            92px
+            13px
+            35px;
+    }
+
+    #home {
+        min-height:
+            100svh;
+    }
+
+    .home-logo {
+        width:
+            96vw;
+    }
+
+    .contract {
+        min-height: 55px;
+
+        padding:
+            9px
+            12px;
+
+        gap: 8px;
+
+        font-size: 10px;
+
+        letter-spacing: 1px;
+    }
+
+    .solana-icon {
+        width: 31px;
+        height: 31px;
+
+        flex-basis: 31px;
+    }
+
+    .solana-icon svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .hero-buy {
+        width:
+            min(350px, 88vw);
+
+        margin-top: 13px;
+    }
+
+    #roadmap,
+    #faq {
+        padding-top: 100px;
+    }
+
+    .roadmap-title {
+        width:
+            94vw;
+
+        margin-bottom: 66px;
+    }
+
+    .road-card {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .road-item {
+        padding: 11px;
+    }
+
+    .road-text {
+        font-size: 14px;
+    }
+
+    .faq-title {
+        width:
+            88vw;
+    }
+
+    .faq-item {
+        grid-template-columns:
+            42px
+            1fr;
+
+        gap: 10px;
+
+        padding:
+            13px;
+    }
+
+    .faq-icon {
+        width: 38px;
+        height: 38px;
+
+        grid-row:
+            1 / span 2;
+    }
+
+    .faq-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .faq-q {
+        font-size: 15px;
+    }
+
+    .faq-answer-static {
+        grid-column: 2;
+
+        padding:
+            9px
+            0
+            0;
+
+        border-left: none;
+
+        border-top:
+            1px solid
+            rgba(255,21,147,.3);
+
+        font-size: 13px;
+    }
+
+    .mobile-menu.open {
+        top: 88px;
+
+        left: 9px;
+        right: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .brand img {
+        width: 100px;
+    }
+
+    .nav-buy {
+        width: 96px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<div class="nav-wrap">
+
+<nav class="navbar">
+
+
+    <!-- LOGO -->
+
+    <a
+        href="#home"
+        class="brand"
+        onclick="showPage('home'); return false;"
+    >
+
+        <img
+            src="LA.png"
+            alt="Ain't In LA"
+        >
+
+    </a>
+
+
+
+    <!-- DESKTOP LINKS -->
+
+    <div class="nav-links">
+
+        <a
+            href="#home"
+            class="nav-link active"
+            data-page="home"
+        >
+            HOME
+        </a>
+
+
+        <a
+            href="#roadmap"
+            class="nav-link"
+            data-page="roadmap"
+        >
+            ROADMAP
+        </a>
+
+
+        <a
+            href="#faq"
+            class="nav-link"
+            data-page="faq"
+        >
+            FAQ
+        </a>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="nav-right">
+
+
+        <!-- X -->
+
+        <a
+            class="social"
+            href="https://x.com/AILAonSol"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"
+                />
+
+            </svg>
+
+        </a>
+
+
+
+        <!-- TELEGRAM -->
+
+        <button
+            class="social"
+            onclick="openTelegram()"
+            aria-label="Telegram"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M21.8 3.2 18.6 20c-.24 1.18-.88 1.47-1.79.92l-4.87-3.59-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.96 9.03-8.16c.39-.35-.09-.55-.61-.2L6.22 13.78l-4.8-1.5c-1.04-.33-1.06-1.04.22-1.54L20.4 3.51c.87-.32 1.63.2 1.4-.31Z"
+                />
+
+            </svg>
+
+        </button>
+
+
+
+        <!-- BUY.PNG -->
+
+        <button
+            class="buy-image-button nav-buy"
+            data-buy-button
+            onclick="buyAILA()"
+            aria-label="Buy AILA"
+        >
+
+            <img
+                src="BUY.png"
+                alt="BUY $AILA"
+            >
+
+        </button>
+
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="mobile-menu-button"
+            onclick="toggleMobileMenu()"
+            aria-label="Menu"
+        >
+            ☰
+        </button>
+
+
+    </div>
+
+</nav>
+
+</div>
+
+
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <a
+        href="#home"
+        onclick="
+            showPage('home');
+            closeMobileMenu();
+            return false;
+        "
+    >
+        HOME
+    </a>
+
+
+    <a
+        href="#roadmap"
+        onclick="
+            showPage('roadmap');
+            closeMobileMenu();
+            return false;
+        "
+    >
+        ROADMAP
+    </a>
+
+
+    <a
+        href="#faq"
+        onclick="
+            showPage('faq');
+            closeMobileMenu();
+            return false;
+        "
+    >
+        FAQ
+    </a>
+
+
+    <a
+        href="https://x.com/AILAonSol"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        X / TWITTER
+    </a>
+
+
+    <button
+        onclick="openTelegram()"
+    >
+        TELEGRAM
+    </button>
+
+</div>
+
+
+
+<!-- =========================================================
+     HOME
+========================================================= -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+<div class="home-content">
+
+
+    <!-- MAIN LOGO -->
+
+    <img
+        src="LA.png"
+        class="home-logo"
+        alt="Ain't In LA"
+    >
+
+
+
+    <!-- CONTRACT -->
+
+    <div class="contract">
+
+
+        <!-- SOLANA ICON -->
+
+        <span class="solana-icon">
+
+            <svg
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+            >
+
+                <defs>
+
+                    <linearGradient
+                        id="solGradient"
+                        x1="0"
+                        y1="0"
+                        x2="1"
+                        y2="1"
+                    >
+
+                        <stop
+                            offset="0%"
+                            stop-color="#00ffa3"
+                        />
+
+                        <stop
+                            offset="100%"
+                            stop-color="#dc1fff"
+                        />
+
+                    </linearGradient>
+
+                </defs>
+
+
+                <path
+                    fill="url(#solGradient)"
+                    d="
+                    M7 5
+                    H27
+                    L23 9
+                    H3
+                    Z
+
+                    M3 14
+                    H23
+                    L27 18
+                    H7
+                    Z
+
+                    M7 23
+                    H27
+                    L23 27
+                    H3
+                    Z
+                    "
+                />
+
+            </svg>
+
+        </span>
+
+
+
+        <span>
+
+            CONTRACT ADDRESS:
+
+            <span
+                class="contract-value"
+                id="contractAddress"
+            >
+                COMING SOON
+            </span>
+
+        </span>
+
+
+    </div>
+
+
+
+    <!-- BUY.PNG -->
+
+    <button
+        class="buy-image-button hero-buy"
+        data-buy-button
+        onclick="buyAILA()"
+        aria-label="Buy AILA"
+    >
+
+        <img
+            src="BUY.png"
+            alt="BUY $AILA"
+        >
+
+    </button>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ROADMAP
+========================================================= -->
+
+<section
+    id="roadmap"
+    class="page"
+>
+
+<div class="roadmap-container">
+
+
+    <!-- ROADMAP TITLE -->
+
+    <img
+        src="roadmap.png"
+        class="roadmap-title"
+        alt="Roadmap"
+    >
+
+
+
+    <div class="roadmap-grid">
+
+
+        <!-- =================================================
+             PHASE 01
+        ================================================= -->
+
+        <article class="road-card">
+
+
+            <div class="phase">
+                01
+            </div>
+
+
+            <h2>
+                LAUNCH
+            </h2>
+
+
+            <div class="pink-line"></div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M14 6l4-4c2 0 4 0 4 0s0 2 0 4l-4 4"
+                        />
+
+                        <path
+                            d="M14 6l-5 5 4 4 5-5"
+                        />
+
+                        <path
+                            d="M9 11H5l-3 3 6 1"
+                        />
+
+                        <path
+                            d="M13 15l1 6 3-3v-4"
+                        />
+
+                        <circle
+                            cx="17"
+                            cy="7"
+                            r="1.5"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Launch $AILA on Solana
+                </span>
+
+            </div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9"
+                        />
+
+                        <path
+                            d="M3 12h18"
+                        />
+
+                        <path
+                            d="M12 3c3 3 4 6 4 9s-1 6-4 9"
+                        />
+
+                        <path
+                            d="M12 3c-3 3-4 6-4 9s1 6 4 9"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Website & socials live
+                </span>
+
+            </div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M4 20V10"
+                        />
+
+                        <path
+                            d="M9 20V4"
+                        />
+
+                        <path
+                            d="M14 20v-7"
+                        />
+
+                        <path
+                            d="M19 20V7"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Token tracking & listing submissions
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =================================================
+             PHASE 02
+        ================================================= -->
+
+        <article class="road-card">
+
+
+            <div class="phase">
+                02
+            </div>
+
+
+            <h2>
+                GET SEEN
+            </h2>
+
+
+            <div class="pink-line"></div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M4 13v-2l12-5v12z"
+                        />
+
+                        <path
+                            d="M4 11H2v4h4"
+                        />
+
+                        <path
+                            d="M7 15l2 5h3l-2-6"
+                        />
+
+                        <path
+                            d="M19 9c1 1 1 5 0 6"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Marketing & creator outreach
+                </span>
+
+            </div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <rect
+                            x="3"
+                            y="9"
+                            width="18"
+                            height="12"
+                            rx="2"
+                        />
+
+                        <path
+                            d="M12 9v12"
+                        />
+
+                        <path
+                            d="M3 13h18"
+                        />
+
+                        <path
+                            d="M12 9H8c-2 0-3-1-3-2.5S6 4 7.5 4C10 4 12 9 12 9Z"
+                        />
+
+                        <path
+                            d="M12 9h4c2 0 3-1 3-2.5S18 4 16.5 4C14 4 12 9 12 9Z"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Giveaways & community events
+                </span>
+
+            </div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle
+                            cx="9"
+                            cy="8"
+                            r="3"
+                        />
+
+                        <circle
+                            cx="17"
+                            cy="9"
+                            r="2.5"
+                        />
+
+                        <path
+                            d="M3 20c0-4 2-6 6-6s6 2 6 6"
+                        />
+
+                        <path
+                            d="M15 15c4 0 6 2 6 5"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Expand $AILA across social media
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =================================================
+             PHASE 03
+        ================================================= -->
+
+        <article class="road-card">
+
+
+            <div class="phase">
+                03
+            </div>
+
+
+            <h2>
+                KEEP IT GOING
+            </h2>
+
+
+            <div class="pink-line"></div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path
+                            d="M3 8l4-3 4 3"
+                        />
+
+                        <path
+                            d="M21 8l-4-3-4 3"
+                        />
+
+                        <path
+                            d="M7 8l5 5 3-3 5 5"
+                        />
+
+                        <path
+                            d="M4 14l5 5c1 1 2 1 3 0"
+                        />
+
+                        <path
+                            d="M20 15l-5 5"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    More campaigns & collaborations
+                </span>
+
+            </div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle
+                            cx="11"
+                            cy="13"
+                            r="8"
+                        />
+
+                        <circle
+                            cx="11"
+                            cy="13"
+                            r="4"
+                        />
+
+                        <path
+                            d="M11 13l9-9"
+                        />
+
+                        <path
+                            d="M16 4h4v4"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Explore new listings & opportunities
+                </span>
+
+            </div>
+
+
+
+            <!-- ITEM -->
+
+            <div class="road-item">
+
+                <span class="road-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="3"
+                        />
+
+                        <path
+                            d="M12 2v3"
+                        />
+
+                        <path
+                            d="M12 19v3"
+                        />
+
+                        <path
+                            d="M2 12h3"
+                        />
+
+                        <path
+                            d="M19 12h3"
+                        />
+
+                        <path
+                            d="M5 5l2 2"
+                        />
+
+                        <path
+                            d="M17 17l2 2"
+                        />
+
+                        <path
+                            d="M19 5l-2 2"
+                        />
+
+                        <path
+                            d="M7 17l-2 2"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="7"
+                        />
+
+                    </svg>
+
+                </span>
+
+
+                <span class="road-text">
+                    Keep building around $AILA
+                </span>
+
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section
+    id="faq"
+    class="page"
+>
+
+<div class="faq-container">
+
+
+    <!-- FAQ TITLE -->
+
+    <img
+        src="FAQ.png"
+        class="faq-title"
+        alt="Frequently Asked Questions"
+    >
+
+
+
+    <div class="faq-list">
+
+
+        <!-- =================================================
+             FAQ 1
+        ================================================= -->
+
+        <div class="faq-item">
+
+
+            <span class="faq-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
+                    />
+
+                    <path
+                        d="M9.5 9a2.7 2.7 0 1 1 4.6 2c-1.3 1.1-2.1 1.5-2.1 3"
+                    />
+
+                    <path
+                        d="M12 18h.01"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="faq-q">
+                What is $AILA?
+            </span>
+
+
+            <span class="faq-answer-static">
+
+                $AILA is a Solana meme token inspired by a current trend.
+                Simple idea. Simple token. Here to have fun with it.
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FAQ 2
+        ================================================= -->
+
+        <div class="faq-item">
+
+
+            <span class="faq-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="16"
+                        rx="2"
+                    />
+
+                    <path
+                        d="M8 3v4"
+                    />
+
+                    <path
+                        d="M16 3v4"
+                    />
+
+                    <path
+                        d="M3 10h18"
+                    />
+
+                    <path
+                        d="M8 14h2"
+                    />
+
+                    <path
+                        d="M14 14h2"
+                    />
+
+                    <path
+                        d="M8 17h2"
+                    />
+
+                    <path
+                        d="M14 17h2"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="faq-q">
+                When does $AILA launch?
+            </span>
+
+
+            <span class="faq-answer-static">
+
+                $AILA is planned to launch on October 4, 2026.
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FAQ 3
+        ================================================= -->
+
+        <div class="faq-item">
+
+
+            <span class="faq-icon">
+
+                <svg viewBox="0 0 32 32">
+
+                    <defs>
+
+                        <linearGradient
+                            id="faqSol"
+                            x1="0"
+                            y1="0"
+                            x2="1"
+                            y2="1"
+                        >
+
+                            <stop
+                                offset="0%"
+                                stop-color="#ff1593"
+                            />
+
+                            <stop
+                                offset="100%"
+                                stop-color="#ff75c5"
+                            />
+
+                        </linearGradient>
+
+                    </defs>
+
+
+                    <path
+                        fill="url(#faqSol)"
+                        stroke="none"
+                        d="
+                        M7 5 H27 L23 9 H3 Z
+                        M3 14 H23 L27 18 H7 Z
+                        M7 23 H27 L23 27 H3 Z
+                        "
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="faq-q">
+                What blockchain is $AILA on?
+            </span>
+
+
+            <span class="faq-answer-static">
+
+                $AILA will launch on Solana.
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FAQ 4
+        ================================================= -->
+
+        <div class="faq-item">
+
+
+            <span class="faq-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        d="M3 4h2l2 11h10l3-8H6"
+                    />
+
+                    <circle
+                        cx="9"
+                        cy="19"
+                        r="1.5"
+                    />
+
+                    <circle
+                        cx="17"
+                        cy="19"
+                        r="1.5"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="faq-q">
+                Where can I buy $AILA?
+            </span>
+
+
+            <span class="faq-answer-static">
+
+                The official buy link and contract address will be published
+                on this website and our official X account after launch.
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FAQ 5
+        ================================================= -->
+
+        <div class="faq-item">
+
+
+            <span class="faq-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        d="M3 18l6-6 4 4 8-9"
+                    />
+
+                    <path
+                        d="M16 7h5v5"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <span class="faq-q">
+                What happens after launch?
+            </span>
+
+
+            <span class="faq-answer-static">
+
+                We plan to focus on promotion, community activity and
+                exploring opportunities to grow the project.
+                Nothing is guaranteed we’ll take it step by step.
+
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+/* =========================================================
+   SETTINGS
+
+   LATER YOU ONLY NEED TO CHANGE THESE.
+========================================================= */
+
+
+/* TELEGRAM LINK */
+
+const TELEGRAM_URL = "https://t.me/AILAonSol";
+
+/*
+
+Example later:
+
+const TELEGRAM_URL = "https://t.me/AILAonSol";
+
+*/
+
+
+
+/* =========================================================
+   BUY LINK
+
+   IMPORTANT:
+
+   LEAVE EMPTY NOW:
+
+   const BUY_URL = "";
+
+   WHEN TOKEN IS LIVE, CHANGE ONLY THIS LINE TO:
+
+   const BUY_URL = "https://your-buy-link.com";
+
+   BOTH BUY.PNG BUTTONS WILL AUTOMATICALLY WORK.
+========================================================= */
+
+const BUY_URL = "";
+
+
+
+/* =========================================================
+   CONTRACT ADDRESS
+
+   LEAVE EMPTY NOW.
+
+   LATER PUT THE CONTRACT ADDRESS BETWEEN THE QUOTES.
+========================================================= */
+
+const CONTRACT_ADDRESS = "";
+
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(pageName) {
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+
+    const selectedPage =
+        document.getElementById(pageName);
+
+
+    if (selectedPage) {
+
+        selectedPage.classList.add("active");
+
+    }
+
+
+    document
+        .querySelectorAll(".nav-link")
+        .forEach(link => {
+
+            link.classList.remove("active");
+
+
+            if (
+                link.dataset.page === pageName
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+
+    history.replaceState(
+        null,
+        "",
+        "#" + pageName
+    );
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+
+/* =========================================================
+   DESKTOP NAV LINKS
+========================================================= */
+
+document
+    .querySelectorAll(".nav-link")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                showPage(
+                    this.dataset.page
+                );
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================================
+   TELEGRAM
+========================================================= */
+
+function openTelegram() {
+
+    if (!TELEGRAM_URL) {
+
+        return;
+
+    }
+
+
+    window.open(
+        TELEGRAM_URL,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+
+/* =========================================================
+   BUY AILA
+
+   IF BUY_URL IS EMPTY:
+   BUTTON DOES NOTHING.
+
+   WHEN BUY_URL EXISTS:
+   BOTH BUTTONS OPEN THE LINK.
+========================================================= */
+
+function buyAILA() {
+
+    if (!BUY_URL) {
+
+        return;
+
+    }
+
+
+    window.open(
+        BUY_URL,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+
+/* =========================================================
+   AUTOMATIC BUY BUTTON STATE
+========================================================= */
+
+function updateBuyButtons() {
+
+    const buttons =
+        document.querySelectorAll(
+            "[data-buy-button]"
+        );
+
+
+    buttons.forEach(button => {
+
+        if (BUY_URL) {
+
+            button.classList.add(
+                "buy-active"
+            );
+
+            button.classList.remove(
+                "buy-disabled"
+            );
+
+            button.setAttribute(
+                "title",
+                "Buy $AILA"
+            );
+
+        }
+
+        else {
+
+            button.classList.add(
+                "buy-disabled"
+            );
+
+            button.classList.remove(
+                "buy-active"
+            );
+
+            button.setAttribute(
+                "title",
+                "Coming soon"
+            );
+
+        }
+
+    });
+
+}
+
+
+updateBuyButtons();
+
+
+
+/* =========================================================
+   CONTRACT ADDRESS
+========================================================= */
+
+if (CONTRACT_ADDRESS) {
+
+    document
+        .getElementById(
+            "contractAddress"
+        )
+        .textContent =
+        CONTRACT_ADDRESS;
+
+}
+
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMobileMenu() {
+
+    document
+        .getElementById(
+            "mobileMenu"
+        )
+        .classList
+        .toggle("open");
+
+}
+
+
+function closeMobileMenu() {
+
+    document
+        .getElementById(
+            "mobileMenu"
+        )
+        .classList
+        .remove("open");
+
+}
+
+
+
+/* =========================================================
+   OPEN PAGE FROM URL HASH
+========================================================= */
+
+const startingPage =
+    window.location.hash
+        .replace("#", "");
+
+
+if (
+    startingPage === "home" ||
+    startingPage === "roadmap" ||
+    startingPage === "faq"
+) {
+
+    showPage(
+        startingPage
+    );
+
+}
+
+</script>
+
+</body>
+</html>
